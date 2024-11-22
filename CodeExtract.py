@@ -61,7 +61,7 @@ def extract_code_from_pdf(filepath):
                 edited_code = sample_code[:index] + "0" + sample_code[index+1:]
 
         print(f"Extracted Code: {edited_code}")
-        return edited_code if code_corrected else sample_code
+        return edited_code if code_corrected else sample_code1231
     return None
 
 
