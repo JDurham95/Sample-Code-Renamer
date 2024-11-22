@@ -7,23 +7,11 @@
 from random import sample
 
 import fitz
-import ocrmypdf
 import os
 import re
 import tkinter as tk
 from tkinter import messagebox
 from tkinterdnd2 import DND_FILES, TkinterDnD
-
-def ocr_pdf(filepath):
-    """
-    Applies optical character recognition to pdf file, if needed
-    """
-    try:
-        ocrmypdf.ocr(filepath, filepath)
-    except Exception as error:
-        print(f"Error in OCR processing: {error}")
-        return False
-    return True
 
 def extract_code_from_pdf(filepath):
     """
@@ -94,10 +82,6 @@ def workflow1(filepath):
     Helper function used to control the workflow
     """
     sample_code = extract_code_from_pdf(filepath)
-    if not sample_code:
-        ocr_success = ocr_pdf(filepath)
-        if ocr_success:
-            sample_code = extract_code_from_pdf(filepath)
 
     return rename_file_with_code(sample_code, filepath)
 
